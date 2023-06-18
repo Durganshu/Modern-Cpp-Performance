@@ -19,8 +19,8 @@ For execution policies, tests should be run on the local machine with `Google Be
  ## Notable references
 
  1. [https://cppcon.org/](https://cppcon.org/)https://cppcon.org/
- 2. [https://github.com/cpp-best-practices](https://github.com/cpp-best-practices)https://github.com/cpp-best-practices
- 3. [CppCon YouTube Channel](https://www.youtube.com/@CppCon/featured)https://www.youtube.com/@CppCon/featured
+ 2. [https://github.com/cpp-best-practices](https://github.com/cpp-best-practices)
+ 3. [CppCon YouTube Channel](https://www.youtube.com/@CppCon/featured)
  4. https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#S-performance
 
 
