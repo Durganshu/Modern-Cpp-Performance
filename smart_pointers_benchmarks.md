@@ -1,6 +1,6 @@
 # Benchmarks on smart pointers
 
-This file contains a list of benchmarks created for comparing different ways of using smart pointers
+This file contains a list of benchmarks created for identifying ways of using smart pointers in C++
 
 ## Initializing unique_ptr
 
