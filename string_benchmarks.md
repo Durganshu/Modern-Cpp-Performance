@@ -1,40 +1,53 @@
 # Benchmarks on strings (std::string vs std::string_view)
 
-This file contains a list of benchmarks created for identifying ways of using strings in C++.
+This file contains a list of benchmarks created for identifying the best-performing ways of using strings in C++.
 
-## Initializing unique_ptr
+## const char* vs std::string
 
-GCC, [O3](https://quick-bench.com/q/ACnNT3zXRrjS1NP9PWIw8VzIdU4) vs [Og](https://quick-bench.com/q/b2Ss8pWI7K_oUpZ6RThb3pylBsg)
+Clang, [O3](https://quick-bench.com/q/o_LHrPJ1VJhxHMlF-UmM_CQZ75g)
 
-Clang, [O3](https://quick-bench.com/q/a0z0UfF_gyIrnDFSs9Msu1Ifd6w) vs [Og](https://quick-bench.com/q/a0z0UfF_gyIrnDFSs9Msu1Ifd6w)
+## Declaring/Initializing short std::string vs long std::string
 
-## Initializing shared_ptr
-GCC, [O3](https://quick-bench.com/q/ZM8HlIUV4ahbiSrDwCEHIuYBPj0) vs [Og](https://quick-bench.com/q/TPfEP7KuVfanfCkrfmmqBDfsnDw)
+GCC, [O3](https://quick-bench.com/q/gzql16zeY7IvT7oOsejBZMoiUI4) vs [Og](https://quick-bench.com/q/-2lDRQ4MrTtiVSRvJiBzsa0SQYk)
 
-Clang, [O3](https://quick-bench.com/q/6OTtHNQnqE3SlOOfPf8kRxSxyyE) vs [Og](https://quick-bench.com/q/kxZEjLoWGhDZu_OFEJLOhn0ssqM)
+Clang, [O3](https://quick-bench.com/q/QFP9CNyFjhXiCywr69F_eJ3K9Hk) vs [Og](https://quick-bench.com/q/5F-fdvkYCl5j68xhmUIVRni2n2o)
 
-## Intializing shared_ptr using a different shared_ptr
+## Declaring/Initializing short std::string_view vs long std::string_view
 
-GCC, [O3](https://quick-bench.com/q/XtDGcjlb4eifKfndqHRX878_E_0) vs [Og](https://quick-bench.com/q/Mc2b7BgzhbGYUJ0UURDEXNWzvRI)
+GCC, [O3](https://quick-bench.com/q/xX0Ji2dPTtt-fN_QTFX_K-m39CQ) vs [Og](https://quick-bench.com/q/KjepIZQnC4HU_tbtqAXOO6p-hYo)
 
-Clang, [O3](https://quick-bench.com/q/VQh0_Hh4_tH4v1LwJkIHwtKM_UQ) vs [Og](https://quick-bench.com/q/Y5Y_GxGTEqm4123955sFI6Qv_Vw)
+Clang, [O3](https://quick-bench.com/q/hg-Aj1T5cqywBTUfFM1Eu_v9fv0) vs [Og](https://quick-bench.com/q/po86SAaJFwV0WmIYlSLnvifia4w)
 
-## shared_ptr vs unique_ptr vs new/delete
+## Declaring/Initializing std::string vs std::string_view
 
-GCC, [O3](https://quick-bench.com/q/tiMEhw8c69s7audDHJJmo0wfhb4) vs [Og](https://quick-bench.com/q/EBaFFkefA7wjN6kugjh7feGCxHo)
+GCC, [O3](https://quick-bench.com/q/TvPOJs_YDb2IsZxtnPrpRm5dJKs)
 
-Clang, [O3](https://quick-bench.com/q/yg0HMXW2Bk3YFYsh7kjEnqn9DRY) vs [Og](https://quick-bench.com/q/ueIcar-K86k_E43DCd_41cxzxN8)
+## Extracting substrings
 
-## Passing shared_ptr of inherited class to functions accepting shared_ptr of base class
+GCC, [O3](https://quick-bench.com/q/h7c7--iZ6o-yYNrGg8cK5q0ah8s) 
 
-GCC, [O3](https://quick-bench.com/q/5uq2818GQKE4dAxVJNpYjL_qgqc) vs [Og](https://quick-bench.com/q/0HxHf2YBVh55j0S9pJ07osMpGDc)
+Clang, [O3](https://quick-bench.com/q/0P5eyQhnCaFI9FP2rzd0dsSxf48)
 
-Clang, [O3](https://quick-bench.com/q/7mpk5XnvwHUyGEAKuKIfy2yXQmI) vs [Og](https://quick-bench.com/q/dH4ktywTa8IYhIDe0_mSXvGgEDQ)
+## Copying strings
+
+GCC, [O3](https://quick-bench.com/q/B6S6z8g_O8lWTCMmC5TRpV99kw4) 
+
+Clang, [O3](https://quick-bench.com/q/a9R1ourte5reisjcYO4R8blwIww)
+
+## Finding in strings
+
+GCC (C++17), [O3](https://quick-bench.com/q/hpV_Fxo-Oe5zTOjDRzyVLfBJZMI) vs [Og](https://quick-bench.com/q/X_uPKtGGYCMsSfF8O7JshWWy7zk)
+
+Clang (C++17), [O3](https://quick-bench.com/q/HPqxjDvbNnl56Q1PHQRnDQrX3ms) vs [Og](https://quick-bench.com/q/oHy5DXOa_eus2FklaCLryPXw8M8)
+
+GCC (C++20), [O3](https://quick-bench.com/q/10fSVgnjuk_T_7MNDiJ_-HJGEmQ) vs [Og](https://quick-bench.com/q/svmXjgn64UgHhGO0vEDXFcpX-Do)
+
+Clang (C++20), [O3](https://quick-bench.com/q/PsZYEy6HLt66-mMuEz0vKZB8TGQ) vs [Og](https://quick-bench.com/q/u2NrF5COcw9ZQkun5ff544ZaS68)
+
 
 ## References
 
-https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines
-https://learn.microsoft.com/en-us/cpp/cpp/how-to-create-and-use-shared-ptr-instances?view=msvc-170
-https://learn.microsoft.com/en-us/cpp/cpp/how-to-create-and-use-unique-ptr-instances?view=msvc-170
-https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#r23-use-make_unique-to-make-unique_ptrs
-https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#r22-use-make_shared-to-make-shared_ptrs
+https://stackoverflow.com/questions/40127965/how-exactly-is-stdstring-view-faster-than-const-stdstring
+https://www.cppstories.com/2018/07/string-view-perf/
+https://shaharmike.com/cpp/std-string/
+https://giodicanio.com/2023/04/26/cpp-small-string-optimization/
