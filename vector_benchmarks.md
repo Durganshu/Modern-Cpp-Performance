@@ -1,6 +1,6 @@
 # Benchmarks on std::vector
 
-This file contains a list of benchmarks created for comparing different ways of using std::vector
+This file contains a list of benchmarks created for identifying ways of using std::vector in C++
 
 ## legacy array vs new/delete
 GCC, [O3](https://quick-bench.com/q/s4VK2MRg9mV8BOQ1cJ01Z7ptJSg) vs [Og](https://quick-bench.com/q/KkY0OvoL9YDv3Z5hXe0wEZZTwYQ)
