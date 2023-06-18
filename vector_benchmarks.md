@@ -2,8 +2,81 @@
 
 This file contains a list of benchmarks created for comparing different ways of using std::vector
 
-## legacy array vs new/delete:
+## legacy array vs new/delete
 GCC, [O3](https://quick-bench.com/q/s4VK2MRg9mV8BOQ1cJ01Z7ptJSg) vs [Og](https://quick-bench.com/q/KkY0OvoL9YDv3Z5hXe0wEZZTwYQ)
 
 Clang, [O3](https://quick-bench.com/q/a0z0UfF_gyIrnDFSs9Msu1Ifd6w) vs [Og](https://quick-bench.com/q/a0z0UfF_gyIrnDFSs9Msu1Ifd6w)
+
+## Declaring/initializing std::array vs std::vector vs std::list:
+
+GCC, [O3]() vs [Og]()
+
+Clang, [O3](https://quick-bench.com/q/j_UZJ2ibbkdho8xq5C89w6Bvf44)
+
+## std::vector vs std::list: push_back()
+
+GCC, [O3]() vs [Og]()
+
+Clang, [O3](https://quick-bench.com/q/Q8oQEI3X9yiUrAfiZJD94uksrbw)
+
+## std::vector vs std::list: push_front()
+
+GCC, [O3]() vs [Og]()
+
+Clang, [O3](https://quick-bench.com/q/ho7a917SEJ9kM688kt_jsPXEQZg)
+
+## std::vector: push_back vs intialization: 
+
+GCC, [O3](https://quick-bench.com/q/xSwdtzToNp14fVRanghCIthDIb4)
+
+Clang, [O3](https://quick-bench.com/q/ccLpaWKeKU9sse43oyggvPu7Wxs)
+
+
+## Copying one vector into another:
+### vector.size() = 10
+
+GCC, [O3](https://quick-bench.com/q/iXgRkgYSHZoCNe0ILg4aLpVzUak) vs [Og](https://quick-bench.com/q/U5TTWrWqsstNrafb-_44yGr5l0Y)
+
+Clang, [O3](https://quick-bench.com/q/_E-JA3LTB7f4xpJUwQgBk9QjM70) vs [Og](https://quick-bench.com/q/SuTA_aUM7akjfcqC3nOKSd05XBY)
+
+### vector.size() = 1000
+
+GCC, [O3](https://quick-bench.com/q/rXO_Pn6DkFIxvf8sQJLLulR9_Hk)
+
+Clang, [O3](https://quick-bench.com/q/EG5Hvd6d8v-OppleuKLvf9p6HKc)
+
+
+## emplace_back() vs push_back(): using objects to a class
+
+GCC, [O3](https://quick-bench.com/q/Nsej1xkxsHCJIq8KHxj4RIqF3JM) 
+
+Clang, [O3](https://quick-bench.com/q/zwshVw5KZtdL3oT_b6ZdSKpt8ug)
+
+## emplace_back() vs push_back(): using `strings`
+
+GCC, [O3](https://quick-bench.com/q/KXq2vR2ddptJxpF0-VCsC7YT8Bo)
+
+Clang, [O3](https://quick-bench.com/q/pg5mZ-vmhApQ7dCsPjscx2YBw7U) 
+
+## Accessing vector elements: iterators vs .at() vs []
+
+GCC, [O3](https://quick-bench.com/q/GtQlhc-xAPBmH6v6A_NWx_NVEsU) vs [Og](https://quick-bench.com/q/Eyxym9qhs8gyYLH7N00gyez0RyU)
+
+Clang, [O3](https://quick-bench.com/q/BiOVHd3gSBe3jwUCfnAD0b6nK5A) vs [Og](https://quick-bench.com/q/2wp9ZbLbfyNHnE8NP2dDqv74a_k)
+
+Assembly code: [GCC](https://godbolt.org/clientstate/eyJzZXNzaW9ucyI6W3siaWQiOjAsImxhbmd1YWdlIjoiYysrIiwic291cmNlIjoiI2luY2x1ZGUgPGJlbmNobWFyay9iZW5jaG1hcmsuaD5cblxuc3RhdGljIHZvaWQgdXNpbmdJdGVyYXRvcihiZW5jaG1hcms6OlN0YXRlJiBzdGF0ZSkge1xuICAvLyBDb2RlIGJlZm9yZSB0aGUgbG9vcCBpcyBub3QgbWVhc3VyZWRcbiAgLy9zdGQ6OnZlY3RvcjxpbnQ+IG15VmVjdG9yeyAxMCwgMjAsIDMwLCA0MCwgNTAsIDYwLCA3MCwgODAsIDkwLCAxMDAgfTtcbiAgICBzdGQ6OnZlY3RvcjxpbnQ+IG15VmVjdG9yKDEwMCwgMTApO1xuICBmb3IgKGF1dG8gXyA6IHN0YXRlKSB7XG4gICAgXG4gICAgaW50IHN1bSA9IDA7XG4gICAgZm9yIChhdXRvIGl0ID0gbXlWZWN0b3IuYmVnaW4oKTsgaXQgIT0gbXlWZWN0b3IuZW5kKCk7ICsraXQpXG4gICAge1xuICAgICAgc3VtID0gc3VtICsgKml0O1xuICAgICAgYmVuY2htYXJrOjpEb05vdE9wdGltaXplKGl0KTtcbiAgICAgIGJlbmNobWFyazo6RG9Ob3RPcHRpbWl6ZShzdW0pO1xuICAgICAgYmVuY2htYXJrOjpEb05vdE9wdGltaXplKG15VmVjdG9yKTtcbiAgICB9XG4gICAgLy9iZW5jaG1hcms6OkRvTm90T3B0aW1pemUoc3VtKTtcbiAgICBcbiAgfVxufVxuQkVOQ0hNQVJLKHVzaW5nSXRlcmF0b3IpO1xuXG5zdGF0aWMgdm9pZCB1c2luZ0FUKGJlbmNobWFyazo6U3RhdGUmIHN0YXRlKSB7XG4gIC8vIENvZGUgYmVmb3JlIHRoZSBsb29wIGlzIG5vdCBtZWFzdXJlZFxuICAvL3N0ZDo6dmVjdG9yPGludD4gbXlWZWN0b3J7IDEwLCAyMCwgMzAsIDQwLCA1MCwgNjAsIDcwLCA4MCwgOTAsIDEwMCB9O1xuICAgIHN0ZDo6dmVjdG9yPGludD4gbXlWZWN0b3IoMTAwLCAxMCk7XG4gIGZvciAoYXV0byBfIDogc3RhdGUpIHtcbiAgICBcbiAgICBpbnQgc3VtID0gMDtcbiAgICBmb3IgKHVuc2lnbmVkIGkgPSAwOyBpIDwgbXlWZWN0b3Iuc2l6ZSgpOyArK2kpXG4gICAge1xuICAgICAgc3VtID0gc3VtICsgbXlWZWN0b3IuYXQoaSk7XG4gICAgICBiZW5jaG1hcms6OkRvTm90T3B0aW1pemUoaSk7XG4gICAgICBiZW5jaG1hcms6OkRvTm90T3B0aW1pemUoc3VtKTtcbiAgICAgIGJlbmNobWFyazo6RG9Ob3RPcHRpbWl6ZShteVZlY3Rvcik7XG4gICAgfVxuICAgIC8vYmVuY2htYXJrOjpEb05vdE9wdGltaXplKHN1bSk7XG4gICAgXG4gIH1cbn1cbkJFTkNITUFSSyh1c2luZ0FUKTtcblxuc3RhdGljIHZvaWQgdXNpbmdJbmRleGluZyhiZW5jaG1hcms6OlN0YXRlJiBzdGF0ZSkge1xuICAvLyBDb2RlIGJlZm9yZSB0aGUgbG9vcCBpcyBub3QgbWVhc3VyZWRcbiAgLy9zdGQ6OnZlY3RvcjxpbnQ+IG15VmVjdG9yeyAxMCwgMjAsIDMwLCA0MCwgNTAsIDYwLCA3MCwgODAsIDkwLCAxMDAgfTtcbiAgICBzdGQ6OnZlY3RvcjxpbnQ+IG15VmVjdG9yKDEwMCwgMTApO1xuICBmb3IgKGF1dG8gXyA6IHN0YXRlKSB7XG4gICAgXG4gICAgaW50IHN1bSA9IDA7XG4gICAgZm9yICh1bnNpZ25lZCBpID0gMDsgaSA8IG15VmVjdG9yLnNpemUoKTsgKytpKVxuICAgIHtcbiAgICAgIHN1bSA9IHN1bSA) vs [Clang](https://godbolt.org/clientstate/eyJzZXNzaW9ucyI6W3siaWQiOjAsImxhbmd1YWdlIjoiYysrIiwic291cmNlIjoiI2luY2x1ZGUgPGJlbmNobWFyay9iZW5jaG1hcmsuaD5cblxuc3RhdGljIHZvaWQgdXNpbmdJdGVyYXRvcihiZW5jaG1hcms6OlN0YXRlJiBzdGF0ZSkge1xuICAvLyBDb2RlIGJlZm9yZSB0aGUgbG9vcCBpcyBub3QgbWVhc3VyZWRcbiAgLy9zdGQ6OnZlY3RvcjxpbnQ+IG15VmVjdG9yeyAxMCwgMjAsIDMwLCA0MCwgNTAsIDYwLCA3MCwgODAsIDkwLCAxMDAgfTtcbiAgICBzdGQ6OnZlY3RvcjxpbnQ+IG15VmVjdG9yKDEwMCwgMTApO1xuICBmb3IgKGF1dG8gXyA6IHN0YXRlKSB7XG4gICAgXG4gICAgaW50IHN1bSA9IDA7XG4gICAgZm9yIChhdXRvIGl0ID0gbXlWZWN0b3IuYmVnaW4oKTsgaXQgIT0gbXlWZWN0b3IuZW5kKCk7ICsraXQpXG4gICAge1xuICAgICAgc3VtID0gc3VtICsgKml0O1xuICAgICAgYmVuY2htYXJrOjpEb05vdE9wdGltaXplKGl0KTtcbiAgICAgIGJlbmNobWFyazo6RG9Ob3RPcHRpbWl6ZShzdW0pO1xuICAgICAgYmVuY2htYXJrOjpEb05vdE9wdGltaXplKG15VmVjdG9yKTtcbiAgICB9XG4gICAgLy9iZW5jaG1hcms6OkRvTm90T3B0aW1pemUoc3VtKTtcbiAgICBcbiAgfVxufVxuQkVOQ0hNQVJLKHVzaW5nSXRlcmF0b3IpO1xuXG5zdGF0aWMgdm9pZCB1c2luZ0FUKGJlbmNobWFyazo6U3RhdGUmIHN0YXRlKSB7XG4gIC8vIENvZGUgYmVmb3JlIHRoZSBsb29wIGlzIG5vdCBtZWFzdXJlZFxuICAvL3N0ZDo6dmVjdG9yPGludD4gbXlWZWN0b3J7IDEwLCAyMCwgMzAsIDQwLCA1MCwgNjAsIDcwLCA4MCwgOTAsIDEwMCB9O1xuICAgIHN0ZDo6dmVjdG9yPGludD4gbXlWZWN0b3IoMTAwLCAxMCk7XG4gIGZvciAoYXV0byBfIDogc3RhdGUpIHtcbiAgICBcbiAgICBpbnQgc3VtID0gMDtcbiAgICBmb3IgKHVuc2lnbmVkIGkgPSAwOyBpIDwgbXlWZWN0b3Iuc2l6ZSgpOyArK2kpXG4gICAge1xuICAgICAgc3VtID0gc3VtICsgbXlWZWN0b3IuYXQoaSk7XG4gICAgICBiZW5jaG1hcms6OkRvTm90T3B0aW1pemUoaSk7XG4gICAgICBiZW5jaG1hcms6OkRvTm90T3B0aW1pemUoc3VtKTtcbiAgICAgIGJlbmNobWFyazo6RG9Ob3RPcHRpbWl6ZShteVZlY3Rvcik7XG4gICAgfVxuICAgIC8vYmVuY2htYXJrOjpEb05vdE9wdGltaXplKHN1bSk7XG4gICAgXG4gIH1cbn1cbkJFTkNITUFSSyh1c2luZ0FUKTtcblxuc3RhdGljIHZvaWQgdXNpbmdJbmRleGluZyhiZW5jaG1hcms6OlN0YXRlJiBzdGF0ZSkge1xuICAvLyBDb2RlIGJlZm9yZSB0aGUgbG9vcCBpcyBub3QgbWVhc3VyZWRcbiAgLy9zdGQ6OnZlY3RvcjxpbnQ+IG15VmVjdG9yeyAxMCwgMjAsIDMwLCA0MCwgNTAsIDYwLCA3MCwgODAsIDkwLCAxMDAgfTtcbiAgICBzdGQ6OnZlY3RvcjxpbnQ+IG15VmVjdG9yKDEwMCwgMTApO1xuICBmb3IgKGF1dG8gXyA6IHN0YXRlKSB7XG4gICAgXG4gICAgaW50IHN1bSA9IDA7XG4gICAgZm9yICh1bnNpZ25lZCBpID0gMDsgaSA8IG15VmVjdG9yLnNpemUoKTsgKytpKVxuICAgIHtcbiAgICAgIHN1bSA9IHN1bSA)
+
+
+## References
+
+https://en.cppreference.com/w/cpp/language/value_category
+https://www.matecdev.com/posts/cpp-vector-array-performance.html
+https://www.acodersjourney.com/6-tips-supercharge-cpp-11-vector-performance/
+https://www.asawicki.info/news_1691_efficient_way_of_using_stdvector
+https://stackoverflow.com/questions/381621/using-arrays-or-stdvectors-in-c-whats-the-performance-gap
+https://stackoverflow.com/questions/23717151/why-emplace-back-is-faster-than-push-back
+https://stackoverflow.com/questions/66916424/is-emplace-back-faster-than-setting-an-index
+https://stackoverflow.com/questions/10890653/why-would-i-ever-use-push-back-instead-of-emplace-back
+
+
 
