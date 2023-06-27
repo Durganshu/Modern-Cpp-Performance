@@ -1,6 +1,6 @@
 # Benchmarks on std::vector
 
-This file contains a list of benchmarks created for identifying the best-performing ways of using std::vector in C++.
+This file contains a list of benchmarks for identifying the best-performing ways of using std::vector in C++.
 
 ## legacy array vs new/delete
 GCC, [O3](https://quick-bench.com/q/s4VK2MRg9mV8BOQ1cJ01Z7ptJSg) vs [Og](https://quick-bench.com/q/KkY0OvoL9YDv3Z5hXe0wEZZTwYQ)
@@ -9,27 +9,22 @@ Clang, [O3](https://quick-bench.com/q/a0z0UfF_gyIrnDFSs9Msu1Ifd6w) vs [Og](https
 
 ## Declaring/initializing std::array vs std::vector vs std::list:
 
-GCC, [O3]() vs [Og]()
-
 Clang, [O3](https://quick-bench.com/q/j_UZJ2ibbkdho8xq5C89w6Bvf44)
 
 ## std::vector vs std::list: push_back()
 
-GCC, [O3]() vs [Og]()
 
 Clang, [O3](https://quick-bench.com/q/Q8oQEI3X9yiUrAfiZJD94uksrbw)
 
 ## std::vector vs std::list: push_front()
 
-GCC, [O3]() vs [Og]()
-
 Clang, [O3](https://quick-bench.com/q/ho7a917SEJ9kM688kt_jsPXEQZg)
 
 ## std::vector: push_back vs intialization: 
 
-GCC, [O3](https://quick-bench.com/q/xSwdtzToNp14fVRanghCIthDIb4)
+GCC, [O3](https://quick-bench.com/q/fvbm2x--SzgbfBlwREdIDVGL1js)
 
-Clang, [O3](https://quick-bench.com/q/ccLpaWKeKU9sse43oyggvPu7Wxs)
+Clang, [O3](https://quick-bench.com/q/rZ6iYiAkfFJ0Nx8emJq4KO88ABE)
 
 
 ## Copying one vector into another:
