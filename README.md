@@ -1,6 +1,6 @@
 # Performance aspects of Modern C++
 
-C++ is a very powerful language usually preferred over other languages because of its incredible performance. However, its vast range of features should be used in a suitable way in order to achieve the intended performance. In this repository, I have done a comprehensive evaluation of the performance aspects of Modern C++ (C++11 and later), particularly focusing on the programming practices. 
+C++ is a powerful language usually preferred over other languages because of its potential to exploit hardware resources to extract maximum performance. However, its vast range of features should be used suitably to achieve the intended performance. In this repository, I have comprehensively evaluated the performance aspects of Modern C++ (C++11 and later), particularly focusing on the programming practices. 
 
 The following elements of C++ have been investigated:
 
@@ -14,7 +14,7 @@ The following elements of C++ have been investigated:
 
 To evaluate the performance of these features, comprehensive benchmarks were conducted using [Quick-bench.com](https://quick-bench.com/), a platform built on [Google benchmark](https://github.com/google/benchmark).
 
-For execution policies, tests should be run on the local machine with `Google Benchmark` locally installed. Please follow the [official documentation](https://github.com/google/benchmark) for installing `Google-benchmark`.
+For execution policies, tests should be run locally on the local machine with `Google Benchmark` installed locally. Please follow the [official documentation](https://github.com/google/benchmark) for installing `Google-benchmark.`
 
  ## Notable references
 
